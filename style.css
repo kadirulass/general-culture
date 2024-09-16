@@ -1,0 +1,296 @@
+/* Genel Stil */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#007BFF;
+    background-size: cover;
+    
+}
+.index{
+    background:url("images/pxfuel.jpg");
+    background-size: cover; /* Resmi kapsayıcı olacak şekilde esnetir */
+    background-position: center; /* Resmi ortalar */
+    background-repeat: no-repeat; /* Resmin tekrarlanmasını önler */
+    background-attachment: fixed;
+}
+
+h1, h2 {
+    margin: 0 0 20px 0;
+}
+
+/* Login ve diğer sayfa stilleri */
+.info-container, .highscores-container, .admin-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Panelin genişliğini artırma */
+    width: 100%; /* Genişlik sınırlamasını kaldırma */
+}
+
+/* Admin Panel Stilleri */
+.admin-container {
+    max-width: 1000px; /* Admin paneli için daha geniş bir maksimum genişlik */
+    padding: 40px;
+    margin: 20px;
+    background-color: #fafafa; /* Panel arka plan rengi */
+    border: 2px solid #ddd; /* Panel kenarlığı */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.game-container{
+    border-radius: 10px;
+    position: relative;
+    max-width: 1000px;
+    background-color: #000000a4;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd; /* Panel kenarlığı */
+    padding: 40px;
+    margin: 20px;
+}
+
+/* Form ve Buton Stilleri */
+form {
+    margin: 20px 0;
+    padding: 20px;  
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-block;
+    width: 500px; /* Form genişliğini genişletme */
+    max-width: 100%; /* Form genişliğini sınırlama */
+}
+form .login-form{
+width: 500px;
+}
+
+label, input, select, button {
+    display: block;
+    margin: 10px auto;
+    width: calc(100% - 22px); /* Form elemanlarının genişliğini ayarlama */
+}
+
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#questionCounter {
+    position: absolute; /* game-container içinde sabitlemek için absolute kullanıyoruz */
+    top: 10px; /* Üstten 10px boşluk */
+    right: 10px; /* Sağdan 10px boşluk */
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.7); /* Hafif şeffaf siyah arka plan */
+    color: rgb(255, 0, 0); /* Yazı rengi */
+    padding: 5px 10px; /* İçerik ile kenar boşluğu */
+    border-radius: 5px; /* Hafif yuvarlak köşeler */
+}
+
+button {
+    margin: 10px 10px 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 500px; /* Container genişliği için maksimum değer */
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0000007e;
+    box-sizing: border-box; /* Padding'in container genişliğini etkilemesini önler */
+}
+.login-container h1{
+    color: #fff;
+}
+
+/* Başlık */
+.login-container h1,h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.game-container h1,h2,p{
+    text-align: center;
+    color:white;
+}
+/* Form stili */
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiket stili */
+.login-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Giriş alanları stili */
+.login-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Padding'in input genişliğini etkilemesini önler */
+}
+
+/* Giriş butonu stili */
+.login-container button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+.loginform p {
+    color:red;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Bilgi Mesajları ve Uyarılar */
+.alert {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+
+/* Genel stil ayarları */
+.hex-container {
+    display: flex;
+    flex-wrap: nowrap; /* Alt satıra geçmesini engeller */
+    overflow-x: auto; /* Genişse yatay kaydırma çubuğu ekler */
+    gap: 10px; /* Kutular arasındaki boşluk */
+    padding: 10px;
+}
+
+/* Hex kutucuk stili */
+.hex {
+    flex: 1 1 auto; /* Genişliği otomatik ayarlar, yer olduğunda büyür */
+    min-width: 40px; /* Küçük alanlarda minimum genişlik */
+    height: 60px; /* Yükseklik */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f39c12;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+/* Küçültme için medya sorguları */
+@media (max-width: 600px) {
+    .hex {
+        min-width: 30px; /* Daha küçük alanlarda daha küçük genişlik */
+        height: 45px; /* Küçültülmüş yükseklik */
+        font-size: 18px; /* Küçültülmüş font boyutu */
+    }
+}
+
+
+.hex.invisible {
+    background-color: #058feb; /* Gizli harfler için farklı bir renk */
+    color: transparent; /* Harfi gizle */
+}
+
+.hex:hover {
+    background-color: #e67e22; /* Hover efekti */
+}
+
+/* Mobil ve küçük ekranlar için medya sorgusu */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 15px;
+        max-width: 90%; /* Mobil cihazlar için genişliği azalt */
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+        max-width: 100%; /* Butonları tam genişlik yap */
+    }
+
+    #timeDisplay {
+        font-size: 1em;
+    }
+
+    #questionCounter {
+        font-size: 16px;
+    }
+}
+
+/* Orta boyutlu cihazlar (Tabletler vb.) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .game-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 80%; /* Tabletler için genişlik ayarı */
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    button {
+        font-size: 15px;
+        max-width: 180px;
+        display: block; /* Orta cihazlar için buton genişliği */
+    }
+}
+
+/* Büyük ekranlar için (Masaüstü) */
+@media (min-width: 900px) {
+    .game-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 700px; /* Büyük ekranlar için genişlik ayarı */
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    button {
+        max-width: 220px;
+        display: block;
+    }
+}
+
+
+
+

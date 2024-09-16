@@ -1,1 +1,1 @@
-# general-culture
+# geograpy-word-game
