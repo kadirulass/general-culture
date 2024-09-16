@@ -11,11 +11,7 @@ body {
     
 }
 .index{
-    background:url("images/pxfuel.jpg");
-    background-size: cover; /* Resmi kapsayıcı olacak şekilde esnetir */
-    background-position: center; /* Resmi ortalar */
-    background-repeat: no-repeat; /* Resmin tekrarlanmasını önler */
-    background-attachment: fixed;
+    background-color: #007BFF;
 }
 
 h1, h2 {
@@ -200,7 +196,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f39c12;
+    background-color: #ff0000;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     font-size: 24px;
     font-weight: bold;
@@ -225,7 +221,7 @@ button:hover {
 }
 
 .hex:hover {
-    background-color: #e67e22; /* Hover efekti */
+    background-color: #000000; /* Hover efekti */
 }
 
 /* Mobil ve küçük ekranlar için medya sorgusu */

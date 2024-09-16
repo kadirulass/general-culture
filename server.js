@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
 // MySQL bağlantısı
 const db = mysql.createConnection({
     host: 'sql7.freesqldatabase.com',
-    user: 'sql7730890',
-    password: '8D3wwHwmjv', // Kendi MySQL şifrenizi buraya girin
-    database: 'sql7730890',
+    user: 'sql7731742',
+    password: 'WqR2RhgLH1', // Kendi MySQL şifrenizi buraya girin
+    database: 'sql7731742',
     port: 3306,
     reconnect:true
 });

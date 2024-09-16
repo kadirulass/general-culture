@@ -1,13 +1,9 @@
 /* Genel Stil */
 body {
     font-family: Arial, sans-serif;
+    background-color: #aa1ed4d8;
     margin: 0;
     padding: 0;
-    background-image: url(images/arkaplan1.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
