@@ -15,7 +15,7 @@ let oyunBitisZamani; // Oyun başlangıç zamanı
 let kelimeler = {}; // JSON'dan gelecek veriyi tutmak için
 let sureDurmaZamani; // Sürenin durduğu zamanı saklamak için
 let sureDevamEttirildi;
-let saniyeSayaci = 0; // Sayaç için saniye cinsinden değişken
+const saniyeSayaci = 0; // Sayaç için saniye cinsinden değişken
 let saniyeInterval; // Sürenin devam ettirilip ettirilmediğini kontrol etmek için
 
 function oyunBaslat() {
@@ -286,4 +286,12 @@ function milisaniyeyiFormataCevir(ms) {
     const saniyeKalan = saniye % 60;
     // Dakikayı ve saniyeyi iki basamaklı formatta döndür
     return `${dakika.toString().padStart(2, '0')}:${saniyeKalan.toString().padStart(2, '0')}`;
+}
+
+function formatKalanSure(sure) {
+    const saat = Math.floor(sure / 3600);
+    const dakika = Math.floor((sure % 3600) / 60);
+    const saniye = sure % 60;
+
+    return `${String(saat).padStart(2, '0')}:${String(dakika).padStart(2, '0')}:${String(saniye).padStart(2, '0')}`;
 }

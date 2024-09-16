@@ -109,14 +109,14 @@ app.get('/get-questions/:category', (req, res) => {
 
 // Skorları ekleme
 app.post('/add-score', (req, res) => {
-    const { kullanici_adi, puan } = req.body;
+    const { kullanici_adi, puan, sure } = req.body;
 
     if (!kullanici_adi || !puan) {
         return res.status(400).send('Kullanıcı adı ve puan gerekli');
     }
 
-    const sql = 'INSERT INTO skorlar (kullanici_adi, puan) VALUES (?, ?)';
-    db.query(sql, [kullanici_adi, puan], (err, result) => {
+    const sql = 'INSERT INTO skorlar (kullanici_adi, puan, sure) VALUES (?, ?, ?)';
+    db.query(sql, [kullanici_adi, puan, sure], (err, result) => {
         if (err) {
             console.error('SQL Error:', err);
             return res.status(500).send('Sunucu hatası');
