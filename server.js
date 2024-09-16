@@ -61,15 +61,6 @@ app.get('/get-questions', (req, res) => {
 });
 
 
-// Soru silme
-app.post('/remove-question', (req, res) => {
-    const { id } = req.body;
-    const sql = 'DELETE FROM sorular WHERE id = ?';
-    db.query(sql, [id], (err, result) => {
-        if (err) throw err;
-        res.send('Soru başarıyla silindi');
-    });
-});
 
 //admin giriş
 app.post('/login', (req, res) => {
