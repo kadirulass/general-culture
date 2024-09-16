@@ -15,6 +15,8 @@ document.getElementById('addQuestionForm').addEventListener('submit', function(e
     .then(response => response.text())
     .then(data => alert(data))
     .catch(error => console.error('Error:', error));
+    document.getElementById('word').value='';
+    document.getElementById('question').value='';
 });
 
 document.getElementById('removeQuestionForm').addEventListener('submit', function(e) {
