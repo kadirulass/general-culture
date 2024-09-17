@@ -190,7 +190,6 @@ function oyunBitti() {
         .then(data => {
             console.log(data);
             alert("Skor başarıyla kaydedildi!");
-            alert("kalan süre:",formatliSure);
             window.location.href = 'index.html';
         })
         .catch(error => console.error('Hata:', error));
