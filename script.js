@@ -28,7 +28,7 @@ function oyunBaslat() {
 }
 
 // Veritabanından kelimeleri yükle
-fetch('https://cografya-kelime-oyunu.onrender.com/get-questions')
+fetch('https://genelkulturoyunu.onrender.com/get-questions')
     .then(response => response.json())
     .then(data => {
         // Gelen veriyi kontrol etmek için log ekliyoruz
@@ -178,7 +178,7 @@ function oyunBitti() {
 
     const kullaniciAdi = prompt('Oyun bitti! Kullanıcı adınızı girin:');
     if (kullaniciAdi) {
-        fetch('https://cografya-kelime-oyunu.onrender.com/add-score', {
+        fetch('https://genelkulturoyunu.onrender.com/add-score', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tahmin === gizliKelime.toLowerCase()) {
             kelimeBulundu();
         } else {
-            const hataliSes = new Audio('sound/wrong.mp3');
+            const hataliSes = new Audio('sound/hatalises.mp3');
             hataliSes.play();
         }
 

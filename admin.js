@@ -5,7 +5,7 @@ document.getElementById('addQuestionForm').addEventListener('submit', function(e
     const word = document.getElementById('word').value;
     const question = document.getElementById('question').value;
 
-    fetch('https://cografya-kelime-oyunu.onrender.com/add-question', {
+    fetch('https://genelkulturoyunu.onrender.com/add-question', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

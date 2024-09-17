@@ -216,7 +216,7 @@ button:hover {
 
 
 .hex.invisible {
-    background-color: #058feb; /* Gizli harfler için farklı bir renk */
+    background-color: #eb05c5; /* Gizli harfler için farklı bir renk */
     color: transparent; /* Harfi gizle */
 }
 

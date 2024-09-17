@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://cografya-kelime-oyunu.onrender.com/get-scores')
+    fetch('https://genelkulturoyunu.onrender.com/get-scores')
         .then(response => response.json())
         .then(data => {
             const scoreList = document.querySelector('#scoreTable tbody');
