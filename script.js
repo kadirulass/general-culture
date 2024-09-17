@@ -172,9 +172,10 @@ function kelimeBulundu() {
 }
 
 function oyunBitti() {
+    oyunBitisZamani=new Date();
     clearInterval(sureInterval);
 
-    const formatliSure = milisaniyeyiFormataCevir(saniyeSayaci * 1000); // Saniyeleri milisaniyeye çevirir ve formatlar
+    const formatliSure = milisaniyeyiFormataCevir(oyunBitisZamani-oyunBaslangicZamani); // Saniyeleri milisaniyeye çevirir ve formatlar
 
     const kullaniciAdi = prompt('Oyun bitti! Kullanıcı adınızı girin:');
     if (kullaniciAdi) {
@@ -188,7 +189,8 @@ function oyunBitti() {
         .then(response => response.text())
         .then(data => {
             console.log(data);
-            alert("Skor başarıyla kaydedildi!");
+            alert("Skor başarıyla kaydedildi!");s
+            alert("kalan süre:",formatliSure);
             window.location.href = 'index.html';
         })
         .catch(error => console.error('Hata:', error));
@@ -288,10 +290,3 @@ function milisaniyeyiFormataCevir(ms) {
     return `${dakika.toString().padStart(2, '0')}:${saniyeKalan.toString().padStart(2, '0')}`;
 }
 
-function formatKalanSure(sure) {
-    const saat = Math.floor(sure / 3600);
-    const dakika = Math.floor((sure % 3600) / 60);
-    const saniye = sure % 60;
-
-    return `${String(saat).padStart(2, '0')}:${String(dakika).padStart(2, '0')}:${String(saniye).padStart(2, '0')}`;
-}
