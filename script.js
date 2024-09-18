@@ -171,7 +171,6 @@ function kelimeBulundu() {
 }
 
 function oyunBitti() {
-    oyunBitisZamani=new Date();
     clearInterval(sureInterval);
 
     const formatliSure = milisaniyeyiFormataCevir(sure*1000); // Saniyeleri milisaniyeye çevirir ve formatlar
@@ -209,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("guessWordBtn").addEventListener("click", () => {
         if (oyunBitti) return;
-        sureyiDurdur(); // Süreyi durdur
         document.getElementById("guessSection").style.display = "block";
         document.getElementById("guessInput").focus();
     });
