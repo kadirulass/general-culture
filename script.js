@@ -4,13 +4,12 @@ let kelimeSayisi = 0;
 let gizliKelime = "";
 let kelimeGorunumu = [];
 let harfler = [];
-let sure = 240; // 4 dakika
+let sure = 0; // 4 dakika
 let sureInterval;
 let sorulmusKelimeler = [];
 let soruSayisi = 0;
 const toplamSoruSayisi = 12;
 let kalanHarfSayisi = 0; // Kalan harf sayısını takip edeceğiz
-let oyunBaslangicZamani;
 let oyunBitisZamani; // Oyun başlangıç zamanı
 let kelimeler = {}; // JSON'dan gelecek veriyi tutmak için
 let sureDurmaZamani; // Sürenin durduğu zamanı saklamak için
@@ -19,11 +18,11 @@ const saniyeSayaci = 0; // Sayaç için saniye cinsinden değişken
 let saniyeInterval; // Sürenin devam ettirilip ettirilmediğini kontrol etmek için
 
 function oyunBaslat() {
-    oyunBaslangicZamani = new Date(); // Oyun başlangıç zamanını kaydet
     sureyiBaslat(); // Zamanlayıcı başlatılır
     saniyeSayaci = 0; // Sayaç sıfırlanır
     saniyeInterval = setInterval(() => {
-        saniyeSayaci++; // Her saniye sayaç 1 artar
+        sure++;
+        sureyiGuncelle(); // Her saniye sayaç 1 artar
     }, 1000);
 }
 
@@ -175,7 +174,7 @@ function oyunBitti() {
     oyunBitisZamani=new Date();
     clearInterval(sureInterval);
 
-    const formatliSure = milisaniyeyiFormataCevir(oyunBitisZamani-oyunBaslangicZamani); // Saniyeleri milisaniyeye çevirir ve formatlar
+    const formatliSure = milisaniyeyiFormataCevir(sure*1000); // Saniyeleri milisaniyeye çevirir ve formatlar
 
     const kullaniciAdi = prompt('Oyun bitti! Kullanıcı adınızı girin:');
     if (kullaniciAdi) {
@@ -227,9 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const hataliSes = new Audio('sound/hatalises.mp3');
             hataliSes.play();
         }
-
-        // Tahmin gönderildikten sonra süreyi devam ettir
-        sureyiDevamEttir();
     });
 });
 
@@ -239,45 +235,18 @@ function sureyiBaslat() {
     }
 
     sureInterval = setInterval(() => {
-        if (sure > 0) {
-            sure--;
-            sureyiGuncelle();
-        } else {
-            clearInterval(sureInterval);
-            alert("Süre doldu! Oyun bitti.");
-            oyunBitti();
-        }
+        sure++;
+        sureyiGuncelle(); 
     }, 1000);
 }
 
 function sureyiGuncelle() {
     const minutes = String(Math.floor(sure / 60)).padStart(2, '0');
     const seconds = String(sure % 60).padStart(2, '0');
-    document.getElementById("timeDisplay").textContent = `Kalan Süre: ${minutes}:${seconds}`;
+    document.getElementById("timeDisplay").textContent = `Süre: ${minutes}:${seconds}`;
 }
 
-// Süreyi Durdur
-function sureyiDurdur() {
-    if (sureInterval) {
-        clearInterval(sureInterval); // Mevcut intervali temizle
-        sureInterval = null; // Intervali sıfırla
-        sureDurmaZamani = new Date(); // Süre durdurulma zamanını kaydet
-    }
-}
 
-// Süreyi Kaldığı Yerden Devam Ettir
-function sureyiDevamEttir() {
-    if (sureDurmaZamani) {
-        // Süreyi durdurduğumuz zaman ile şu anki zaman arasındaki farkı hesaplayın
-        const durmaSuresi = (new Date() - sureDurmaZamani) / 1000; // Durma süresi saniye cinsinden hesaplanır
-        sureDurmaZamani = null; // Durdurulan zamanı sıfırla
-    }
-
-    // Süreyi devam ettirmek için bir interval zaten yoksa başlat
-    if (!sureInterval) {
-        sureyiBaslat(); // Süreyi tekrar başlat
-    }
-}
 
 function milisaniyeyiFormataCevir(ms) {
     // Toplam saniyeyi hesapla

@@ -54,18 +54,10 @@ h1 {
 }
 
 #scoreTable tr {
-    background-color: #f70202; /* Varsayılan arka plan rengi */
+    background-color: #005700; /* Varsayılan arka plan rengi */
     color: #ffffff;
 }
 
-#scoreTable .first-place {
-    background-color: #055205; /* 1. olanın arka plan rengi: yeşil */
-}
-
-#scoreTable .second-place {
-    background-color: #ff4800; /* 2. olanın arka plan rengi: sarı */
-    color: #ffffff;
-}
 
 /* Buton stili */
 button {

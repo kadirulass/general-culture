@@ -1,7 +1,7 @@
 /* Genel Stil */
 body {
     font-family: Arial, sans-serif;
-    background-color: #aa1ed4d8;
+    background-color: black; /* Yarı şeffaf arka plan */
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,8 +12,10 @@ body {
 
 .login-container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Yarı şeffaf arka plan */
+    background-color:#ff00f2d8; /* Yarı şeffaf arka plan */
     border-radius: 10px;
+    border-color: #3498db;
+    border-width: 5px;
     padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 90%;
@@ -34,7 +36,7 @@ button {
     font-size: 16px;
     margin: 10px 0;
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 5px;

@@ -100,17 +100,7 @@ button {
     transition: background-color 0.3s;
 }
 
-.login-container {
-    width: 100%;
-    max-width: 500px; /* Container genişliği için maksimum değer */
-    margin: 100px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #0000007e;
-    box-sizing: border-box; /* Padding'in container genişliğini etkilemesini önler */
-}
+
 .login-container h1{
     color: #fff;
 }
