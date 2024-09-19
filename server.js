@@ -118,7 +118,7 @@ app.post('/add-score', (req, res) => {
 
 // Skorları listeleme
 app.get('/get-scores', (req, res) => {
-    const sql = 'SELECT * FROM skorlar ORDER BY puan DESC';
+    const sql = 'SELECT * FROM skorlar ORDER BY puan DESC, sure ASC';
     db.query(sql, (err, results) => {
         if (err) {
             console.error('SQL Error:', err);

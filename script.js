@@ -8,7 +8,7 @@ let sure = 0; // 4 dakika
 let sureInterval;
 let sorulmusKelimeler = [];
 let soruSayisi = 0;
-const toplamSoruSayisi = 12;
+const toplamSoruSayisi = 14;
 let kalanHarfSayisi = 0; // Kalan harf sayısını takip edeceğiz
 let oyunBitisZamani; // Oyun başlangıç zamanı
 let kelimeler = {}; // JSON'dan gelecek veriyi tutmak için
@@ -48,46 +48,54 @@ fetch('https://genelkulturoyunu.onrender.com/get-questions')
         console.error('Kelimeler verisi yüklenirken hata oluştu:', error);
     });
 
-function kelimeSec() {
-    console.log("Kelime seçiliyor...");
-
-    if (kelimeSayisi >= 2) {
-        kelimeUzunlugu++;
-        kelimeSayisi = 0;
+    function kelimeSec() {
+        console.log("Kelime seçiliyor...");
+    
+        // Soru sayısına göre kelime uzunluğunu ayarlıyoruz
+        if (soruSayisi < 2) {
+            kelimeUzunlugu = 4; // 1-2. sorular: 4 harfli
+        } else if (soruSayisi < 4) {
+            kelimeUzunlugu = 5; // 3-4. sorular: 5 harfli
+        } else if (soruSayisi < 6) {
+            kelimeUzunlugu = 6; // 5-6. sorular: 6 harfli
+        } else if (soruSayisi < 8) {
+            kelimeUzunlugu = 7; // 7-8. sorular: 7 harfli
+        } else if (soruSayisi < 10) {
+            kelimeUzunlugu = 8; // 9-10. sorular: 8 harfli
+        } else if (soruSayisi < 12) {
+            kelimeUzunlugu = 9; // 11-12. sorular: 9 harfli
+        } else {
+            kelimeUzunlugu = 10; // 13-14. sorular: 10 harfli
+        }
+    
+        const kelimeListesi = kelimeler[kelimeUzunlugu];
+        if (!kelimeListesi || kelimeListesi.length === 0) {
+            alert(`Bu uzunlukta (${kelimeUzunlugu}) kelime bulunamadı!`);
+            return;
+        }
+    
+        let secilen;
+        let denemeSayisi = 0;
+        do {
+            secilen = kelimeListesi[Math.floor(Math.random() * kelimeListesi.length)];
+            denemeSayisi++;
+        } while (sorulmusKelimeler.includes(secilen.kelime));
+    
+        // Seçilen kelimeyi sorulmuş kelimeler listesine ekliyoruz
+        sorulmusKelimeler.push(secilen.kelime);
+        gizliKelime = secilen.kelime;
+        kelimeGorunumu = Array(gizliKelime.length).fill('_');
+        harfler = [];
+        kalanHarfSayisi = gizliKelime.length; // Başlangıçta tüm harfler gizli
+        soruSayisi++;
+        gosterKelime(secilen.soru);
+        guncelleSoruSayisi();
+    
+        // Eğer tüm sorular bitti ise oyun bitirilir
+        if (soruSayisi >= toplamSoruSayisi) {
+            oyunBitti();
+        }
     }
-
-    // Eğer kelime uzunluğu maksimum sınırı geçtiyse oyun biter
-    if (kelimeUzunlugu > 10) {
-        alert(`Oyun Bitti! Toplam Puanınız: ${toplamPuan}`);
-        oyunBitti();
-        return;
-    }
-
-    // Seçilecek kelimeler kategorisini kontrol ediyoruz
-    const kelimeListesi = kelimeler[kelimeUzunlugu];
-    if (!kelimeListesi || kelimeListesi.length === 0) {
-        alert(`Bu uzunlukta (${kelimeUzunlugu}) kelime bulunamadı!`);
-        return;
-    }
-
-    let secilen;
-    let denemeSayisi = 0;
-    do {
-        secilen = kelimeListesi[Math.floor(Math.random() * kelimeListesi.length)];
-        denemeSayisi++;
-    } while (sorulmusKelimeler.includes(secilen.kelime));
-
-    // Seçilen kelimeyi sorulmuş kelimeler listesine ekliyoruz
-    sorulmusKelimeler.push(secilen.kelime);
-    gizliKelime = secilen.kelime;
-    kelimeGorunumu = Array(gizliKelime.length).fill('_');
-    harfler = [];
-    kalanHarfSayisi = gizliKelime.length; // Başlangıçta tüm harfler gizli
-    kelimeSayisi++;
-    soruSayisi++;
-    gosterKelime(secilen.soru);
-    guncelleSoruSayisi();
-}
 
 function gosterKelime(soru) {
     const wordDisplay = document.getElementById("wordDisplay");
