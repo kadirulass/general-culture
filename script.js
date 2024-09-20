@@ -92,7 +92,7 @@ fetch('https://genelkulturoyunu.onrender.com/get-questions')
         guncelleSoruSayisi();
     
         // Eğer tüm sorular bitti ise oyun bitirilir
-        if (soruSayisi >= toplamSoruSayisi) {
+        if (soruSayisi > toplamSoruSayisi) {
             oyunBitti();
         }
     }
